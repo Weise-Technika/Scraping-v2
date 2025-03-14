@@ -47,7 +47,7 @@ RUN npm install
 COPY . .
 
 # เปิดพอร์ตที่แอปพลิเคชันจะรัน
-EXPOSE 3000
+EXPOSE 3001
 
 # รันแอปพลิเคชัน
 CMD ["node", "index.js"]

@@ -9,7 +9,7 @@ import mottoAuction from './routes/motto-auction.js';
 // import roddonjai from './routes/roddonjai.js';
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(express.json());
 app.use('/', Hello);
