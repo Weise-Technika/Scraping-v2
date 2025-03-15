@@ -107,7 +107,7 @@ router.post("/", async (req, res) => {
       const enterSaleButtons = await page.$$("a.enter-sale");
       for (const button of enterSaleButtons) {
         await button.click();
-        buttonClickCount++; // เพิ่มค่าตัวแปรเมื่อปุ่มถูกกด
+        buttonClickCount++; 
         await delay(1000); 
       }
       console.log(`จำนวนปุ่มที่ถูกกด: ${buttonClickCount}`);
