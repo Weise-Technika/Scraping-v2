@@ -1,8 +1,9 @@
 # ใช้ Node.js base image
 FROM node:20
 
-# ติดตั้งไลบรารีที่จำเป็นสำหรับ Puppeteer
+# ติดตั้งไลบรารีที่จำเป็นสำหรับ Puppeteer และ Chromium
 RUN apt-get update && apt-get install -y \
+    chromium-browser \
     libnss3 \
     libatk1.0-0 \
     libatk-bridge2.0-0 \
