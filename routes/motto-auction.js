@@ -1,5 +1,5 @@
 import express from "express";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core"; // ใช้ puppeteer-core แทน puppeteer
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -59,6 +59,7 @@ router.post("/", async (req, res) => {
   let browser;
   try {
     browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser', // ระบุเส้นทางของ Chromium ที่ติดตั้ง
       headless: true,
       defaultViewport: null,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
