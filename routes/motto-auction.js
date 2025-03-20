@@ -58,8 +58,8 @@ router.post("/", async (req, res) => {
 
   let browser;
   try {
-    browser = await puppeteer.launch({
-      executablePath: '/usr/bin/chromium-browser', // ระบุเส้นทางของ Chromium ที่ติดตั้ง
+    browser = await puppeteer.launch({      
+      executablePath: '/usr/bin/chromium',
       headless: true,
       defaultViewport: null,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -167,3 +167,4 @@ router.post("/", async (req, res) => {
 });
 
 export default router;
+

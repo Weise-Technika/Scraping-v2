@@ -1,9 +1,8 @@
-# ใช้ Node.js base image
-FROM node:20
+# ใช้ Node.js base image ที่รองรับ ARM (สำหรับ Raspberry Pi)
+FROM node:20-bullseye-slim
 
 # ติดตั้งไลบรารีที่จำเป็นสำหรับ Puppeteer และ Chromium
-RUN apt-get update && apt-get install -y \
-    chromium-browser \
+RUN apt-get update && apt-get install -y chromium \
     libnss3 \
     libatk1.0-0 \
     libatk-bridge2.0-0 \
@@ -32,8 +31,11 @@ RUN apt-get update && apt-get install -y \
     libxdamage1 \
     libxkbcommon0 \
     libxss1 \
-    --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+# ตั้งค่า Puppeteer ให้ใช้ Chromium ที่ติดตั้งในระบบ
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 # ตั้งค่า working directory
 WORKDIR /app
